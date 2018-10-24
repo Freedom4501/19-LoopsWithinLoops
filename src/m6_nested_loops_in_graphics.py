@@ -80,7 +80,7 @@ def draw_L(window, circle, r, c):
     and m and n are small, positive integers.
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # Done: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
     radius = circle.radius
@@ -92,10 +92,34 @@ def draw_L(window, circle, r, c):
         for j in range(3):
             new_circle = rg.Circle(rg.Point(x,y), radius)
             new_circle.attach_to(window)
+            new_circle.fill_color = 'green'
             window.render(0.1)
             x = x + 2 * radius
         y = y + 2 * radius
         x = circle.center.x
+
+    x1 = x
+    y1 = y
+    for k in range(3):
+        for j in range(3):
+            corner = rg.Circle(rg.Point(x1, y1), radius)
+            corner.attach_to(window)
+            corner.fill_color = 'green'
+            window.render(0.1)
+            x1 = x1 + 2 * radius
+        y1 = y1 + 2 * radius
+        x1 = circle.center.x
+
+    y = y
+    for k in range(3):
+        x = x1 + 6 * radius
+        for j in range(c):
+            new_circle = rg.Circle(rg.Point(x,y), radius)
+            new_circle.attach_to(window)
+            new_circle.fill_color = 'green'
+            window.render(0.1)
+            x = x + 2 * radius
+        y = y + 2 * radius
 
 
 
